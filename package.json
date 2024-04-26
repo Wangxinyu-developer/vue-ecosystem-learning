@@ -1,17 +1,51 @@
 {
-	"name": "vue-ecosystem-learning",
-	"version": "1.0.0",
-	"main": "index.js",
-	"packageManager": "pnpm@9.0.5",
-	"scripts": {
-		"serve": "serve"
-	},
-	"keywords": [
-		"vue"
-	],
-	"author": "wangxinyu-developer",
-	"license": "MIT",
-	"devDependencies": {
-		"serve": "^14.2.1"
-	}
+  "name": "vue-ecosystem-learning",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [
+    "vue"
+  ],
+  "author": "wangxinyu-developer",
+  "license": "MIT",
+  "packageManager": "pnpm@9.0.5",
+  "type": "module",
+  "scripts": {
+    "serve": "serve",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ],
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "devDependencies": {
+    "eslint": "^9.1.1",
+    "eslint-plugin-import-x": "^0.5.0",
+    "eslint-plugin-vitest": "^0.5.4",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1",
+    "tslib": "^2.6.2",
+    "typescript-eslint": "^7.7.1"
+  },
+  "engines": {
+    "node": ">=18.12.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "typescript-eslint>eslint": "^9.0.0",
+        "@typescript-eslint/eslint-plugin>eslint": "^9.0.0",
+        "@typescript-eslint/parser>eslint": "^9.0.0",
+        "@typescript-eslint/type-utils>eslint": "^9.0.0",
+        "@typescript-eslint/utils>eslint": "^9.0.0"
+      }
+    }
+  }
 }
