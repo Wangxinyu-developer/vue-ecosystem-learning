@@ -6,10 +6,19 @@ import { builtinModules } from 'node:module';
 const DOMGlobals = ['window', 'document'];
 const NodeGlobals = ['module', 'require'];
 
+/**
+ * 定义了一个规则，用于禁止在TypeScript中使用const枚举。
+ *
+ * 禁止使用const枚举的原因是为了鼓励使用非const枚举。由于本项目自动内联枚举，
+ * 因此使用非const枚举可以达到相同的效果，同时避免了使用const枚举可能带来的问题，比如调试困难及命名冲突等潜在问题。
+ *
+ * @property {string} selector - 在ESLint规则中用于识别const枚举的选择器字符串。它指定了查找具有const属性为true的TypeScript枚举声明。
+ * @property {string} message - 当该规则被违反时显示的错误信息。解释了为什么禁止使用const枚举以及推荐的替代方案。
+ */
 const banConstEnum = {
 	selector: 'TSEnumDeclaration[const=true]',
-	message:
-		'Please use non-const enums. This project automatically inlines enums.',
+	// 'Please use non-const enums. This project automatically inlines enums.'
+	message: '请使用非const枚举。本项目会自动内联枚举。',
 };
 
 export default tseslint.config(
@@ -138,8 +147,6 @@ export default tseslint.config(
 			'rollup.config.js', // Rollup 打包配置文件
 			'scripts/**', // scripts 目录下的所有文件
 			'./*.{js,ts}', // 根目录下所有的 .js 和 .ts 文件
-			'packages/*/*.js', // packages 目录下一级目录中的 .js 文件
-			'packages/vue/*/*.js', // packages/vue 目录下二级目录中的 .js 文件
 		],
 		// 规则配置：自定义特定文件的 lint 规则
 		rules: {
