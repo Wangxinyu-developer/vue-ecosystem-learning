@@ -24,4 +24,15 @@ export default defineConfig({
 	},
 	// 确保TypeScript配置正确载入
 	// vite 本身会自动检测tsconfig.json，通常不需要额外配置
+	build: {
+		outDir: 'dist',
+		chunkSizeWarningLimit: 1500,
+		rollupOptions: {
+			output: {
+				chunkFileNames: 'assets/js/[name]-[hash].js',
+				entryFileNames: 'assets/js/[name]-[hash].js',
+				assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+			},
+		},
+	},
 });
