@@ -130,20 +130,22 @@ export default tseslint.config(
 		},
 	},
 
-	// Node scripts
+	// node 脚本配置
 	{
+		// 文件数组：定义了需要进行 lint 检查的文件路径模式
 		files: [
-			'eslint.config.js',
-			'rollup.config.js',
-			'scripts/**',
-			'./*.{js,ts}',
-			'packages/*/*.js',
-			'packages/vue/*/*.js',
+			'eslint.config.js', // ESLint 配置文件
+			'rollup.config.js', // Rollup 打包配置文件
+			'scripts/**', // scripts 目录下的所有文件
+			'./*.{js,ts}', // 根目录下所有的 .js 和 .ts 文件
+			'packages/*/*.js', // packages 目录下一级目录中的 .js 文件
+			'packages/vue/*/*.js', // packages/vue 目录下二级目录中的 .js 文件
 		],
+		// 规则配置：自定义特定文件的 lint 规则
 		rules: {
-			'no-restricted-globals': 'off',
-			'no-restricted-syntax': ['error', banConstEnum],
-			'no-console': 'off',
+			'no-restricted-globals': 'off', // 关闭对某些全局变量使用的限制
+			'no-restricted-syntax': ['error', banConstEnum], // 错误级别提示，禁止使用特定的语法结构，具体规则由 banConstEnum 函数定义
+			'no-console': 'off', // 允许使用 console.log 等控制台输出
 		},
 	},
 
