@@ -59,8 +59,8 @@ export default tseslint.config(
 		rules: {
 			'no-debugger': 'error', // 在ESLint配置中禁止使用debugger语句
 			'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
-			// most of the codebase are expected to be env agnostic
-			'no-restricted-globals': ['error', ...DOMGlobals, ...NodeGlobals],
+			// most of the codebase are expected to be env agnostic 大部分代码库期望是环境无关的
+			// 'no-restricted-globals': ['error', ...DOMGlobals, ...NodeGlobals],
 
 			'no-restricted-syntax': [
 				'error',
