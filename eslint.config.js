@@ -1,6 +1,34 @@
+/**
+ * 导入eslint-plugin-import-x模块
+ *
+ * 该行代码导入了一个特定的eslint插件，用于增强对import语句的检查和规范。
+ * 它是通过ES6的模块导入语法来引入的，指定的模块名是'eslint-plugin-import-x'。
+ *
+ * @import importX
+ * @from 'eslint-plugin-import-x'
+ * @description 导入一个特定的eslint插件，用于增强对import语句的检查和规范。
+ */
 import importX from 'eslint-plugin-import-x';
+/**
+ * 导入typescript-eslint模块，用于后续的TypeScript代码静态分析和 linting。
+ * 这里的注释主要解释为什么需要导入这个模块，即为了使用TypeScript的ESLint插件来提升代码质量和维护性。
+ */
 import tseslint from 'typescript-eslint';
+/**
+ * 导入vitest模块
+ *
+ * 该行代码导入了'eslint-plugin-vitest'模块，该模块是Vitest框架的ESLint插件。
+ * 它的作用是为Vitest框架的测试代码提供ESLint规则支持，以确保测试代码的质量和风格一致性。
+ */
 import vitest from 'eslint-plugin-vitest';
+/**
+ * 导入内置模块列表
+ *
+ * 使用`node:module`协议导入内置模块列表，以便后续操作，如检查是否使用了内置模块。
+ * 这种导入方式是Node.js 16.0.0及以上版本引入的特性，它提供了一种直接访问Node.js内置模块的方式，而无需手动导入。
+ *
+ * @see https://nodejs.org/api/modules.html#modules_accessing_the_core_modules_object
+ */
 import { builtinModules } from 'node:module';
 
 const DOMGlobals = ['window', 'document'];
@@ -23,13 +51,13 @@ const banConstEnum = {
 
 export default tseslint.config(
 	{
-		files: ['**/*.js', '**/*.ts', '**/*.tsx'],
-		extends: [tseslint.configs.base],
+		files: ['**/*.js', '**/*.ts', '**/*.tsx'], // '**/*.js' 匹配所有目录下的JavaScript文件
+		extends: [tseslint.configs.base], // 继承TSESLint的基本配置规则
 		plugins: {
 			'import-x': importX,
 		},
 		rules: {
-			'no-debugger': 'error',
+			'no-debugger': 'error', // 在ESLint配置中禁止使用debugger语句
 			'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
 			// most of the codebase are expected to be env agnostic
 			'no-restricted-globals': ['error', ...DOMGlobals, ...NodeGlobals],
