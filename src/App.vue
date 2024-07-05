@@ -1,12 +1,3 @@
-<script setup lang="ts">
-</script>
-
 <template>
-	<div>
-		vue ecosystem
-	</div>
+	<RouterView />
 </template>
-
-<style scoped>
-
-</style>

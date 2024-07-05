@@ -28,20 +28,24 @@
 		"*.{js,css,md}": "prettier --write"
 	},
 	"dependencies": {
-		"vue": "^3.4.21"
+		"axios": "^1.7.2",
+		"nprogress": "^0.2.0",
+		"vue": "^3.4.21",
+		"vue-router": "4"
 	},
 	"devDependencies": {
+		"@vitejs/plugin-vue": "^5.0.4",
 		"eslint": "^9.1.1",
 		"eslint-plugin-import-x": "^0.5.0",
 		"eslint-plugin-vitest": "^0.5.4",
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.2",
 		"prettier": "^3.2.5",
+		"sass": "^1.77.6",
 		"serve": "^14.2.1",
 		"tslib": "^2.6.2",
-		"typescript-eslint": "^7.7.1",
-		"@vitejs/plugin-vue": "^5.0.4",
 		"typescript": "^5.2.2",
+		"typescript-eslint": "^7.7.1",
 		"vite": "^5.2.0",
 		"vue-tsc": "^2.0.6"
 	},

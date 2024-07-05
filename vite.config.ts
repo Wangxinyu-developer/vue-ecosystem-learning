@@ -1,9 +1,15 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { URL, fileURLToPath } from 'node:url';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: '/vue-ecosystem-learning/',
+	base: '',
+	resolve: {
+		alias: {
+			'@': fileURLToPath(new URL('./src', import.meta.url)),
+		},
+	},
 	plugins: [
 		vue(), // 或者使用 createVuePlugin()，取决于你使用的Vue插件版本
 	],
